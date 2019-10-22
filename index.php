@@ -12,6 +12,5 @@ require 'Model/PostLoader.php';
 require 'Model/Post.php';
 
 
-
 $controller = new GuestController();
 $controller->render();

@@ -2,14 +2,17 @@
 if(isset($_POST['submit'])) {
 
 
-    $id =12;
-    $content = "qsdtqsdqjsdjqsjdjqsdjjdsj";
-    $title ="test title";
+   $title = $_POST['title'];
+    $name = $_POST['name'];
+    $date = $_POST['date'];
+    $comment = $_POST['comment'];
+
 
     $additionalArray = array(
-        'id' => $id,
         'title' => $title,
-        'content' => $content
+        'name' => $name,
+        'date' => $date,
+        'comment' => $comment
     );
 
 //open or read json data
@@ -22,6 +25,15 @@ if(isset($_POST['submit'])) {
 
     file_put_contents('guest.json', $jsonData);
 
+
+
+
+
+
+
+    /*$filelocation = "guest.json";
+    $json_string = json_encode($_POST, JSON_PRETTY_PRINT);
+    file_put_contents($filelocation, $json_string, FILE_APPEND);*/
 }
 ?>
 
@@ -76,71 +88,67 @@ if(isset($_POST['submit'])) {
 
 
 
-    <h1>Form</h1>
-    <form name="form1" method="post" action="">
-        <p>
-            <label for="name">Name: </label>
-            <input type="text" name="name" id="name" placeholder="Your full name" autofocus required>
-        </p>
-        <p>
-            <label for="email">Email: </label>
-            <input type="email" name="email" id="email">
-        </p>
-        <p>
-            <label for="cell">Cell: </label>
-            <input type="tel" name="cell" id="cell">
-        </p>
-        <p>
-            <label for="dob">Date of birth: </label>
-            <input type="date" name="dob" id="dob">
-        </p>
-        <p>
-            <label for="study">Years of art study: </label>
-            0 <input type="range" name="study" id="study" min="0" max="16"> 16
-        </p>
-        <p style="text-align: center;">
-            <input type="submit" name="submit" id="submit" value="Submit">
-        </p>
-    </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <div class="container">
         <form name="form1" method="post" action="">
             <div class="form-group pt-5">
-                <label for="exampleFormControlInput1">Title</label>
-                <input type="text" class="form-control" id="titleguestbook" placeholder="title">
-                <label for="exampleFormControlInput1">Author Name</label>
-                <input type="text" class="form-control" id="author name" placeholder="author name">
-                <label for="exampleFormControlInput1">Date</label>
-                <input type="date" class="form-control" id="dateguestbook" placeholder="10/08/2019>
-                <label for="">Comment</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="your comment . . ."></textarea>
                 <p>
-                    <a href="#" class="btn btn-primary my-2">Button 1</a>
+                    <label for="name">Title: </label>
+                    <input type="text" name="title" id="title" placeholder="Title / Subject " class="form-control" autofocus required>
+                </p>
+                <p>
+                    <label for="email">Author Name: </label>
+                    <input type="text" name="name" id="name" class="form-control">
+                </p>
+                <p>
+                    <label for="cell">Date: </label>
+                    <input type="date" name="date" id="date" class="form-control">
+                </p>
+                <p>
+                    <label for="dob">Comment: </label>
+                    <input type="text" name="comment" id="comment" class="form-control">
+                </p>
+                <p style="text-align: center;">
+                    <input type="submit" name="submit" class="btn btn-primary my-2" id="submit">
                 </p>
             </div>
         </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--<form name="form1" method="post" action="">
+            <div class="form-group pt-5">
+                <p>
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" class="form-control">
+                </p>
+                <p>
+                <label for="name">Author Name</label>
+                <input type="text" name="name" id="name" class="form-control">
+                </p>
+                <label for="date">Date</label>
+                <input type="date" name="date" id="date" class="form-control">
+                <p>
+                <label for="comment">Comment</label>
+                <textarea class="form-control" name="comment" id="comment" rows="3" ></textarea>
+                </p>
+                <p>
+                    <button type="submit" class="btn btn-primary my-2" id="submit">Post</button>
+                </p>
+            </div>
+        </form>-->
     </div>
 
 
